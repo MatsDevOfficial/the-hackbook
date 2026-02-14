@@ -35,6 +35,17 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  
+  # Uncomment to test real emails in development
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address: "smtp.webreus.email",
+  #   port: 587,
+  #   user_name: ENV["WEBREUS_EMAIL_USER"],
+  #   password: ENV["WEBREUS_EMAIL_PASS"],
+  #   authentication: "plain",
+  #   enable_starttls: true
+  # }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

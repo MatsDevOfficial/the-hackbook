@@ -116,13 +116,26 @@ Rails.application.routes.draw do
 
   get "auth/hca/start" => "auth#new", as: :signin
   get "auth/hca/callback" => "auth#create", as: :hca_callback
+  get "auth/bypass" => "auth#bypass", as: :auth_bypass if Rails.env.development?
   delete "auth/signout" => "auth#destroy", as: :signout
 
   get "sorry" => "bans#show", as: :sorry
 
   get "home" => "home#index", as: :home
 
-  resources :projects
+  resources :projects do
+    member do
+      post :invite
+    end
+    collection do
+      get :join
+    end
+  end
+  resources :segments, except: [ :index ] do
+    member do
+      get :export
+    end
+  end
 
   get "docs" => "markdown#show", as: :docs
   get "docs/*slug" => "markdown#show", as: :doc

@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: project_invitations
+#
+#  id            :bigint           not null, primary key
+#  email         :string
+#  role          :string
+#  token         :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  invited_by_id :integer
+#  project_id    :bigint           not null
+#
+# Indexes
+#
+#  index_project_invitations_on_project_id  (project_id)
+#  index_project_invitations_on_token       (token) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (project_id => projects.id)
+#
+require "test_helper"
+
+class ProjectInvitationTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+end

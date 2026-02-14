@@ -34,6 +34,10 @@ class User < ApplicationRecord
   has_many :ahoy_events, class_name: "Ahoy::Event", dependent: :nullify
   has_many :projects, dependent: :destroy
   has_many :ships, through: :projects
+  has_many :segments, dependent: :destroy
+  has_many :project_memberships, dependent: :destroy
+  has_many :club_projects, through: :project_memberships, source: :project
+  has_many :sent_invitations, class_name: "ProjectInvitation", foreign_key: :invited_by_id, dependent: :nullify
   has_many :reviewed_ships, class_name: "Ship", foreign_key: :reviewer_id, dependent: :nullify, inverse_of: :reviewer
 
   encrypts :hca_token

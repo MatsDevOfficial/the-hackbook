@@ -18,6 +18,11 @@
     repo_link: props.project.repo_link,
     is_unlisted: props.project.is_unlisted,
     tags: props.project.tags,
+    hours_logged: props.project.hours_logged || 0,
+    point_multiplier: props.project.point_multiplier || 1.0,
+    project_type: props.project.project_type || 'personal',
+    club_prizes: props.project.club_prizes || '',
+    github_repo: props.project.github_repo || '',
   })
 
   function submit(e: Event) {
@@ -90,9 +95,70 @@
     </div>
 
     <div>
+      <label for="project_type" class="block text-sm font-medium text-gray-700">Project Type</label>
+      <select
+        id="project_type"
+        bind:value={$form.project_type}
+        class="mt-1 block w-full border border-gray-300 rounded px-3 py-2"
+      >
+        <option value="personal">Personal</option>
+        <option value="club">Club</option>
+      </select>
+    </div>
+
+    {#if $form.project_type === 'club'}
+      <div>
+        <label for="club_prizes" class="block text-sm font-medium text-gray-700">Club Prizes</label>
+        <textarea
+          id="club_prizes"
+          bind:value={$form.club_prizes}
+          rows="2"
+          class="mt-1 block w-full border border-gray-300 rounded px-3 py-2"
+          placeholder="e.g. Legendary Completion Stickers, $50 Shop Credit..."
+        ></textarea>
+      </div>
+    {/if}
+
+    <div>
+      <label for="github_repo" class="block text-sm font-medium text-gray-700"
+        >GitHub Repository (for Segment sync)</label
+      >
+      <input
+        type="text"
+        id="github_repo"
+        bind:value={$form.github_repo}
+        class="mt-1 block w-full border border-gray-300 rounded px-3 py-2"
+        placeholder="username/repo"
+      />
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <label for="hours_logged" class="block text-sm font-medium text-gray-700">Hours Logged</label>
+        <input
+          type="number"
+          id="hours_logged"
+          bind:value={$form.hours_logged}
+          min="0"
+          class="mt-1 block w-full border border-gray-300 rounded px-3 py-2"
+        />
+      </div>
+      <div>
+        <label for="point_multiplier" class="block text-sm font-medium text-gray-700">Point Multiplier</label>
+        <input
+          type="number"
+          id="point_multiplier"
+          bind:value={$form.point_multiplier}
+          step="0.1"
+          min="0.1"
+          class="mt-1 block w-full border border-gray-300 rounded px-3 py-2"
+        />
+      </div>
+    </div>
+
+    <div>
       <label class="inline-flex items-center gap-2">
         <input type="checkbox" bind:checked={$form.is_unlisted} class="rounded border-gray-300" />
-        <span class="text-sm text-gray-700">Unlisted</span>
+        <span class="text-sm text-gray-700">Unlisted (Draft)</span>
       </label>
     </div>
 

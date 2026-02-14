@@ -95,6 +95,8 @@ gem "aws-sdk-s3", require: false
 
 gem "pagy", "~> 43.2"
 gem "pg_search", "~> 2.3"
+gem "wicked_pdf"
+gem "htmltoword"
 
 gem "inertia_rails", "~> 3.10"
 

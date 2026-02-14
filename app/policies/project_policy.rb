@@ -7,7 +7,7 @@ class ProjectPolicy < ApplicationPolicy
 
   def show?
     return false if record.discarded? && !admin?
-    admin? || !record.is_unlisted || owner?
+    admin? || !record.is_unlisted || member?
   end
 
   def create?
@@ -16,12 +16,22 @@ class ProjectPolicy < ApplicationPolicy
 
   def update?
     return false if record.discarded? && !admin?
-    admin? || owner?
+    admin? || leader?
   end
 
   def destroy?
     return false if record.discarded?
-    admin? || owner?
+    admin? || leader?
+  end
+
+  private
+
+  def member?
+    record.user == user || record.project_memberships.exists?(user: user)
+  end
+
+  def leader?
+    record.user == user || record.project_memberships.exists?(user: user, role: :leader)
   end
 
   class Scope < ApplicationPolicy::Scope

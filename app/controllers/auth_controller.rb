@@ -1,5 +1,5 @@
 class AuthController < ApplicationController
-  allow_unauthenticated_access only: %i[ new create ]
+  allow_unauthenticated_access only: %i[ new create bypass ]
   skip_before_action :redirect_banned_user!, only: %i[destroy]
   rate_limit to: 10, within: 3.minutes, only: :create, with: -> { redirect_to signin_path, alert: "Try again later." }
 
@@ -8,6 +8,27 @@ class AuthController < ApplicationController
     session[:state] = state
 
     redirect_to HcaService.authorize_url(hca_callback_url, state), allow_other_host: true
+  end
+
+  def bypass
+    unless Rails.env.development?
+      redirect_to root_path, alert: "Not allowed in production!"
+      return
+    end
+
+    user = User.find_or_create_by!(email: "619401@olz.nl") do |u|
+      u.display_name = "Dev Admin"
+      u.avatar = "https://github.com/hackclub.png"
+      u.timezone = "UTC"
+      u.slack_id = "U_BYPASS"
+      u.hca_id = "hca_bypass"
+      u.roles = [ "user", "admin" ]
+    end
+
+    user.add_role(:admin) unless user.admin?
+    session[:user_id] = user.id
+
+    redirect_to root_path, notice: "Logged in as #{user.display_name} (Bypass Mode)"
   end
 
   def create

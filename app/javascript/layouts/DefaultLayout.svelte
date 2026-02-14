@@ -8,6 +8,6 @@
 
 <Nav />
 <FlashMessages />
-<main>
+<main class="blueprint-grid min-h-[calc(100vh-76px)]">
   {@render children()}
 </main>

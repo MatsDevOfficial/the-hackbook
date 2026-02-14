@@ -177,6 +177,10 @@ GEM
       activesupport (>= 6.1)
     hashie (5.1.0)
       logger
+    htmltoword (1.1.1)
+      actionpack
+      nokogiri
+      rubyzip (>= 1.0)
     i18n (1.14.8)
       concurrent-ruby (~> 1.0)
     image_processing (1.14.0)
@@ -502,6 +506,9 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    wicked_pdf (2.8.2)
+      activesupport
+      ostruct
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yaml (0.4.0)
@@ -531,6 +538,7 @@ DEPENDENCIES
   dotenv-rails
   faraday (~> 2.13)
   geocoder
+  htmltoword
   image_processing (~> 1.2)
   inertia_rails (~> 3.10)
   jbuilder
@@ -562,6 +570,7 @@ DEPENDENCIES
   tzinfo-data
   vite_rails (~> 3.0)
   web-console
+  wicked_pdf
 
 BUNDLED WITH
    2.6.9

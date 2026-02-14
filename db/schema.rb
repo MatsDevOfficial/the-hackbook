@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_12_190137) do
+ActiveRecord::Schema[8.1].define(version: 2026_02_14_185333) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -85,13 +85,40 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_12_190137) do
     t.index ["visitor_token", "started_at"], name: "index_ahoy_visits_on_visitor_token_and_started_at"
   end
 
+  create_table "project_invitations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "email"
+    t.integer "invited_by_id"
+    t.bigint "project_id", null: false
+    t.string "role"
+    t.string "token"
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_invitations_on_project_id"
+    t.index ["token"], name: "index_project_invitations_on_token", unique: true
+  end
+
+  create_table "project_memberships", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.bigint "project_id", null: false
+    t.string "role"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["project_id"], name: "index_project_memberships_on_project_id"
+    t.index ["user_id"], name: "index_project_memberships_on_user_id"
+  end
+
   create_table "projects", force: :cascade do |t|
+    t.text "club_prizes"
     t.datetime "created_at", null: false
     t.string "demo_link"
     t.text "description"
     t.datetime "discarded_at"
+    t.string "github_repo"
+    t.integer "hours_logged", default: 0
     t.boolean "is_unlisted", default: false, null: false
     t.string "name", null: false
+    t.decimal "point_multiplier", precision: 5, scale: 2, default: "1.0"
+    t.string "project_type"
     t.string "repo_link"
     t.string "tags", default: [], null: false, array: true
     t.datetime "updated_at", null: false
@@ -100,6 +127,23 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_12_190137) do
     t.index ["is_unlisted"], name: "index_projects_on_is_unlisted"
     t.index ["tags"], name: "index_projects_on_tags", using: :gin
     t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "segments", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.string "demo_link"
+    t.integer "hours_logged", default: 0
+    t.boolean "is_unlisted", default: false, null: false
+    t.decimal "point_multiplier", precision: 5, scale: 2, default: "1.0"
+    t.bigint "project_id"
+    t.string "repo_link"
+    t.string "tags", default: [], null: false, array: true
+    t.string "title", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["project_id"], name: "index_segments_on_project_id"
+    t.index ["user_id"], name: "index_segments_on_user_id"
   end
 
   create_table "ships", force: :cascade do |t|
@@ -113,10 +157,12 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_12_190137) do
     t.string "justification"
     t.bigint "project_id", null: false
     t.bigint "reviewer_id"
+    t.bigint "segment_id"
     t.integer "status", default: 0, null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_ships_on_project_id"
     t.index ["reviewer_id"], name: "index_ships_on_reviewer_id"
+    t.index ["segment_id"], name: "index_ships_on_segment_id"
     t.index ["status"], name: "index_ships_on_status"
   end
 
@@ -150,7 +196,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_12_190137) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "project_invitations", "projects"
+  add_foreign_key "project_memberships", "projects"
+  add_foreign_key "project_memberships", "users"
   add_foreign_key "projects", "users"
+  add_foreign_key "segments", "projects"
+  add_foreign_key "segments", "users"
   add_foreign_key "ships", "projects"
+  add_foreign_key "ships", "segments"
   add_foreign_key "ships", "users", column: "reviewer_id"
 end

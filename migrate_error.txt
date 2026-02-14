@@ -1,0 +1,52 @@
+** Invoke db:migrate (first_time)
+** Invoke db:load_config (first_time)
+** Invoke environment (first_time)
+** Execute environment
+WickedPdf.config= is deprecated and will be removed in future versions. Use WickedPdf.configure instead.
+W, [2026-02-14T19:56:19.856103 #11090]  WARN -- Skylight: [SKYLIGHT] [7.0.0] Running Skylight in development mode. No data will be reported until you deploy your app.
+(To disable this message for all local apps, run `skylight disable_dev_warning`.)
+** Execute db:load_config
+** Execute db:migrate
+bin/rails aborted!
+ActiveRecord::DuplicateMigrationVersionError:  (ActiveRecord::DuplicateMigrationVersionError)
+
+Multiple migrations have the version number 20260214185248.
+
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activerecord-8.1.2/lib/active_record/migration.rb:1572:in 'ActiveRecord::Migrator#validate'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activerecord-8.1.2/lib/active_record/migration.rb:1438:in 'ActiveRecord::Migrator#initialize'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activerecord-8.1.2/lib/active_record/migration.rb:1270:in 'Class#new'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activerecord-8.1.2/lib/active_record/migration.rb:1270:in 'ActiveRecord::MigrationContext#up'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activerecord-8.1.2/lib/active_record/migration.rb:1245:in 'ActiveRecord::MigrationContext#migrate'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activerecord-8.1.2/lib/active_record/tasks/database_tasks.rb:268:in 'ActiveRecord::Tasks::DatabaseTasks#migrate'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activerecord-8.1.2/lib/active_record/tasks/database_tasks.rb:246:in 'ActiveRecord::Tasks::DatabaseTasks#migrate_all'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activerecord-8.1.2/lib/active_record/railties/databases.rake:90:in 'block (2 levels) in <main>'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:281:in 'block in Rake::Task#execute'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:281:in 'Array#each'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:281:in 'Rake::Task#execute'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:219:in 'block in Rake::Task#invoke_with_call_chain'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:199:in 'Monitor#synchronize'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:199:in 'Rake::Task#invoke_with_call_chain'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:188:in 'Rake::Task#invoke'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/application.rb:188:in 'Rake::Application#invoke_task'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/application.rb:138:in 'block (2 levels) in Rake::Application#top_level'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/application.rb:138:in 'Array#each'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/application.rb:138:in 'block in Rake::Application#top_level'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/application.rb:147:in 'Rake::Application#run_with_threads'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/application.rb:132:in 'Rake::Application#top_level'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.1.2/lib/rails/commands/rake/rake_command.rb:27:in 'block (2 levels) in Rails::Command::RakeCommand.perform'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/application.rb:214:in 'Rake::Application#standard_exception_handling'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.1.2/lib/rails/commands/rake/rake_command.rb:27:in 'block in Rails::Command::RakeCommand.perform'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.1.2/lib/rails/commands/rake/rake_command.rb:44:in 'block in Rails::Command::RakeCommand.with_rake'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/rake_module.rb:59:in 'Rake.with_application'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.1.2/lib/rails/commands/rake/rake_command.rb:41:in 'Rails::Command::RakeCommand.with_rake'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.1.2/lib/rails/commands/rake/rake_command.rb:20:in 'Rails::Command::RakeCommand.perform'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.1.2/lib/rails/command.rb:150:in 'Rails::Command.invoke_rake'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.1.2/lib/rails/command.rb:67:in 'block in Rails::Command.invoke'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.1.2/lib/rails/command.rb:143:in 'Rails::Command.with_argv'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.1.2/lib/rails/command.rb:63:in 'Rails::Command.invoke'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.1.2/lib/rails/commands.rb:18:in '<main>'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/3.4.0/bundled_gems.rb:82:in 'Kernel.require'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/3.4.0/bundled_gems.rb:82:in 'block (2 levels) in Kernel#replace_require'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/bootsnap-1.23.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:33:in 'Kernel#require'
+bin/rails:4:in '<main>'
+Tasks: TOP => db:migrate

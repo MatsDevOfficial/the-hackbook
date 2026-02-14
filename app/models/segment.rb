@@ -1,61 +1,51 @@
 # == Schema Information
 #
-# Table name: projects
+# Table name: segments
 #
 #  id               :bigint           not null, primary key
-#  club_prizes      :text
+#  content          :text
 #  demo_link        :string
-#  description      :text
-#  discarded_at     :datetime
-#  github_repo      :string
 #  hours_logged     :integer          default(0)
 #  is_unlisted      :boolean          default(FALSE), not null
-#  name             :string           not null
 #  point_multiplier :decimal(5, 2)    default(1.0)
-#  project_type     :string
 #  repo_link        :string
 #  tags             :string           default([]), not null, is an Array
+#  title            :string           not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  project_id       :bigint
 #  user_id          :bigint           not null
 #
 # Indexes
 #
-#  index_projects_on_discarded_at  (discarded_at)
-#  index_projects_on_is_unlisted   (is_unlisted)
-#  index_projects_on_tags          (tags) USING gin
-#  index_projects_on_user_id       (user_id)
+#  index_segments_on_project_id  (project_id)
+#  index_segments_on_user_id     (user_id)
 #
 # Foreign Keys
 #
+#  fk_rails_...  (project_id => projects.id)
 #  fk_rails_...  (user_id => users.id)
 #
-class Project < ApplicationRecord
-  include Discardable
-  include PgSearch::Model
-
-  has_paper_trail
-
-  pg_search_scope :search, against: [ :name, :description ], using: { tsearch: { prefix: true } }
-
+class Segment < ApplicationRecord
   belongs_to :user
   has_many :ships, dependent: :destroy
-  has_many :segments, dependent: :destroy
-  has_many :project_memberships, dependent: :destroy
-  has_many :members, through: :project_memberships, source: :user
-  has_many :project_invitations, dependent: :destroy
 
-  attribute :project_type, :string
-  enum :project_type, { personal: "personal", club: "club" }, default: "personal"
+  validates :title, presence: true
+  validates :content, presence: true
 
-  validates :project_type, presence: true
-
-  validates :name, presence: true
   validates :hours_logged, numericality: { greater_than_or_equal_to: 0 }
   validates :point_multiplier, numericality: { greater_than: 0 }
   validates :is_unlisted, inclusion: { in: [ true, false ] }
+  
   validates :demo_link, format: { with: /\Ahttps?:\/\/\S+\z/i, message: "must be a valid URL starting with http:// or https://" }, allow_blank: true
   validates :repo_link, format: { with: /\Ahttps?:\/\/\S+\z/i, message: "must be a valid URL starting with http:// or https://" }, allow_blank: true
 
-  scope :listed, -> { where(is_unlisted: false) }
+  # Ensure tags is always an array
+  before_validation :ensure_tags_is_array
+
+  private
+
+  def ensure_tags_is_array
+    self.tags ||= []
+  end
 end

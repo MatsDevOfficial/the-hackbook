@@ -36,6 +36,9 @@ export interface ProjectCard {
   tags: string[]
   user_display_name: string
   ships_count: number
+  hours_logged: number
+  point_multiplier: number
+  project_type: 'personal' | 'club'
 }
 
 export interface ProjectDetail {
@@ -48,6 +51,13 @@ export interface ProjectDetail {
   tags: string[]
   user_display_name: string
   created_at: string
+  hours_logged: number
+  point_multiplier: number
+  project_type: 'personal' | 'club'
+  club_prizes: string | null
+  github_repo: string | null
+  segments: { id: number; title: string; created_at: string }[]
+  members: { id: number; display_name: string; avatar: string }[]
 }
 
 export interface ProjectForm {
@@ -58,6 +68,11 @@ export interface ProjectForm {
   repo_link: string
   is_unlisted: boolean
   tags: string[]
+  hours_logged: number
+  point_multiplier: number
+  project_type: 'personal' | 'club'
+  club_prizes: string
+  github_repo: string
 }
 
 export interface AdminUserRow {
