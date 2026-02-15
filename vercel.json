@@ -5,9 +5,7 @@
             "src": "package.json",
             "use": "@vercel/static-build",
             "config": {
-                "distDir": "public",
-                "installCommand": "npm install",
-                "buildCommand": "SECRET_KEY_BASE_DUMMY=1 bundle exec rake assets:precompile"
+                "distDir": "public"
             }
         },
         {

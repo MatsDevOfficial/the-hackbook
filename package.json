@@ -23,7 +23,9 @@
   },
   "scripts": {
     "check": "svelte-check --tsconfig ./tsconfig.json && tsc -p tsconfig.node.json",
-    "format:check": "prettier --check 'app/javascript/**/*.{ts,js,svelte}'"
+    "format:check": "prettier --check 'app/javascript/**/*.{ts,js,svelte}'",
+    "build": "vite build",
+    "vercel-build": "SECRET_KEY_BASE_DUMMY=1 bundle exec rake assets:precompile"
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.57.1"
