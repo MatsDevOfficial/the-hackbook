@@ -22,6 +22,10 @@
     ],
     "routes": [
         {
+            "src": "/",
+            "dest": "/public/index.html"
+        },
+        {
             "src": "/vite/.*",
             "dest": "/public/vite$0",
             "headers": {
@@ -33,11 +37,11 @@
             "dest": "/public/assets$0"
         },
         {
-            "src": "/(images|favicon.ico).*",
+            "src": "/(images|favicon.*|robots.txt).*",
             "dest": "/public/$1$2"
         },
         {
-            "src": "/.*",
+            "src": "/(.*)",
             "dest": "config.ru"
         }
     ]
