@@ -1,0 +1,46 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "public",
+                "installCommand": "npm install",
+                "buildCommand": "SECRET_KEY_BASE_DUMMY=1 bundle exec rake assets:precompile"
+            }
+        },
+        {
+            "src": "config.ru",
+            "use": "@vercel/ruby",
+            "config": {
+                "bundleArgs": [
+                    "--without",
+                    "development",
+                    "test"
+                ]
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/vite/.*",
+            "dest": "/public/vite$0",
+            "headers": {
+                "cache-control": "public, max-age=31536000, immutable"
+            }
+        },
+        {
+            "src": "/assets/.*",
+            "dest": "/public/assets$0"
+        },
+        {
+            "src": "/(images|favicon.ico).*",
+            "dest": "/public/$1$2"
+        },
+        {
+            "src": "/.*",
+            "dest": "config.ru"
+        }
+    ]
+}
