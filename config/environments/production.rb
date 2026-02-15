@@ -22,7 +22,7 @@ Rails.application.configure do
   # config.asset_host = "http://assets.example.com"
 
   # Store uploaded files on Cloudflare R2 (see config/storage.yml for options).
-  config.active_storage.service = :r2
+  config.active_storage.service = :supabase
   config.active_storage.resolve_model_to_route = :rails_storage_proxy
 
   # Assume all access to the app is happening through a SSL-terminating reverse proxy.
@@ -51,7 +51,7 @@ Rails.application.configure do
   config.cache_store = :redis_cache_store, { url: ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } }
 
   # Replace the default in-process and non-durable queuing backend for Active Job.
-  config.active_job.queue_adapter = :solid_queue
+  config.active_job.queue_adapter = :async
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host: ENV.fetch("APP_HOST", "example.com") }
