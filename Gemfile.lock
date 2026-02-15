@@ -128,7 +128,7 @@ GEM
     childprocess (5.1.0)
       logger (~> 1.5)
     concurrent-ruby (1.3.6)
-    connection_pool (3.0.2)
+    connection_pool (2.5.0)
     crass (1.0.6)
     csv (3.3.5)
     date (3.5.1)
@@ -536,6 +536,7 @@ DEPENDENCIES
   capybara
   debug
   dotenv-rails
+  connection_pool (~> 2.5)
   faraday (~> 2.13)
   geocoder
   htmltoword
