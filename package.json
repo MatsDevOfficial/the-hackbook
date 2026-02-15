@@ -29,5 +29,8 @@
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.57.1"
+  },
+  "engines": {
+    "ruby": "3.2.6"
   }
 }
