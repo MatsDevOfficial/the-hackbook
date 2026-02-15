@@ -4,7 +4,15 @@ require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(*Rails.groups)
+if Rails.env.production?
+  Bundler.require(*Rails.groups, :production)
+  # Exclude solid_* gems and mission_control from auto-loading in production serverless
+  # to prevent eagerness issues or missing tables.
+  # We manually require what we need if necessary, but these are mostly for background workers/action cable
+  # which we aren't using in the serverless context (using async/pusher instead if needed).
+else
+  Bundler.require(*Rails.groups)
+end
 
 module HcRailsStarter
   class Application < Rails::Application
