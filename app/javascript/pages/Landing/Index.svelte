@@ -116,7 +116,7 @@
         Finish segments for the Hackbook and you might just walk away with some legendary prizes.
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div class="bg-white border-4 border-black p-8 rounded-2xl hover:bg-brand-yellow transition-colors group">
           <h4 class="text-5xl font-black mb-4 group-hover:scale-110 transition-transform">🏆</h4>
           <h3 class="text-2xl font-bold mb-2">Prizes</h3>
@@ -126,6 +126,16 @@
           <h4 class="text-5xl font-black mb-4 group-hover:scale-110 transition-transform">🎟️</h4>
           <h3 class="text-2xl font-bold mb-2">Writer Stickers</h3>
           <p>Every finalized segment-writer earns limited edition stickers.</p>
+        </div>
+        <div class="bg-white border-4 border-black p-8 rounded-2xl hover:bg-brand-blue transition-colors group">
+          <h4 class="text-5xl font-black mb-4 group-hover:scale-110 transition-transform">🧪</h4>
+          <h3 class="text-2xl font-bold mb-2">STEM Books</h3>
+          <p>Selected high-quality STEM literature to fuel your next big experimentation.</p>
+        </div>
+        <div class="bg-white border-4 border-black p-8 rounded-2xl hover:bg-brand-red transition-colors group">
+          <h4 class="text-5xl font-black mb-4 group-hover:scale-110 transition-transform">📕</h4>
+          <h3 class="text-2xl font-bold mb-2">The Hackbook</h3>
+          <p>The definitive physical guide for builders, shipped straight to your doorstep.</p>
         </div>
       </div>
     </div>
