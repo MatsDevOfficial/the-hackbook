@@ -102,7 +102,7 @@ Rails.application.routes.draw do
   end
 
   constraints AdminConstraint.new do
-    mount MissionControl::Jobs::Engine, at: "/jobs"
+    mount MissionControl::Jobs::Engine, at: "/jobs" unless Rails.env.production?
 
     namespace :admin do
       resources :projects, only: [ :index, :show ]
