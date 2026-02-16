@@ -19,11 +19,7 @@ module HcaService
   end
 
   def scopes
-    if Rails.env.production?
-      "email name profile birthdate address verification_status slack_id"
-    else
-      "profile email name slack_id verification_status"
-    end
+    "openid profile email name slack_id verification_status"
   end
 
   def authorize_url(redirect_uri, state)
