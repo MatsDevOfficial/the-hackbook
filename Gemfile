@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.0.1"
+gem "rails", "~> 8.1.2"
 gem "psych", "~> 4.0"
 gem "connection_pool", "~> 2.5"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
