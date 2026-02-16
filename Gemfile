@@ -23,6 +23,8 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
+gem "mission_control-jobs", "~> 1.1"
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -84,9 +86,7 @@ gem "geocoder"
 
 gem "pundit", "~> 2.4"
 gem "paper_trail", "~> 17.0"
-gem "mission_control-jobs", "~> 1.1"
 
-gem "skylight", "~> 7.0"
 
 gem "sentry-ruby", "~> 5.28"
 gem "sentry-rails", "~> 5.28"
@@ -103,3 +103,5 @@ gem "htmltoword"
 gem "inertia_rails", "~> 3.10"
 
 gem "vite_rails", "~> 3.0"
+
+
