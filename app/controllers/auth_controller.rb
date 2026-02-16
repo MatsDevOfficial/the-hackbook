@@ -7,6 +7,15 @@ class AuthController < ApplicationController
     state = SecureRandom.hex(24)
     session[:state] = state
 
+    Rails.logger.tagged("Authentication") do
+      Rails.logger.info({
+        event: "oauth_flow_started",
+        state: state,
+        callback_url: hca_callback_url,
+        session_id: session.id.to_s
+      }.to_json)
+    end
+
     redirect_to HcaService.authorize_url(hca_callback_url, state), allow_other_host: true
   end
 
@@ -32,6 +41,17 @@ class AuthController < ApplicationController
   end
 
   def create
+    Rails.logger.tagged("Authentication") do
+      Rails.logger.info({
+        event: "oauth_callback_received",
+        has_code: params[:code].present?,
+        has_state: params[:state].present?,
+        session_state: session[:state],
+        params_state: params[:state],
+        session_id: session.id.to_s
+      }.to_json)
+    end
+
     if params[:state] != session[:state]
       Rails.logger.tagged("Authentication") do
         Rails.logger.error({
@@ -53,7 +73,9 @@ class AuthController < ApplicationController
         Rails.logger.info({
           event: "authentication_successful",
           user_id: user.id,
-          email: user.email
+          email: user.email,
+          session_user_id: session[:user_id],
+          session_id: session.id.to_s
         }.to_json)
       end
 
