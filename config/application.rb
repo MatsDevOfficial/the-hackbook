@@ -4,7 +4,11 @@ require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(*Rails.groups)
+bundler_groups = Rails.groups
+# Load solid integrations (queue, cache, cable) in valid environments (dev/test/VPS), 
+# but EXCLUDE them in serverless production (Vercel) to prevent boot crashes.
+bundler_groups << :solid unless Rails.env.production?
+Bundler.require(*bundler_groups)
 
 module HcRailsStarter
   class Application < Rails::Application
@@ -14,7 +18,7 @@ module HcRailsStarter
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
-    config.autoload_lib(ignore: %w[assets tasks])
+    config.autoload_lib(ignore: %w[assets tasks constraints geocoder])
 
     # Enable Rack::Attack middleware
     config.middleware.use Rack::Attack
