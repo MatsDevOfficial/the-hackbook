@@ -309,7 +309,8 @@ GEM
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
       rack
-    psych (4.0.6)
+    psych (5.3.1)
+      date
       stringio
     public_suffix (7.0.2)
     puma (7.2.0)
@@ -545,7 +546,7 @@ DEPENDENCIES
   pg (~> 1.5)
   pg_search (~> 2.3)
   propshaft
-  psych (~> 4.0)
+  psych (~> 5.3)
   puma (>= 5.0)
   pundit (~> 2.4)
   rack-attack (~> 6.7)
