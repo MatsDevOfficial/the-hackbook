@@ -1,0 +1,108 @@
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/bundler-2.6.9/lib/bundler/rubygems_ext.rb:64: warning: already initialized constant Gem::Platform::JAVA
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/site_ruby/3.4.0/rubygems/platform.rb:279: warning: previous definition of JAVA was here
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/bundler-2.6.9/lib/bundler/rubygems_ext.rb:65: warning: already initialized constant Gem::Platform::MSWIN
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/site_ruby/3.4.0/rubygems/platform.rb:280: warning: previous definition of MSWIN was here
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/bundler-2.6.9/lib/bundler/rubygems_ext.rb:66: warning: already initialized constant Gem::Platform::MSWIN64
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/site_ruby/3.4.0/rubygems/platform.rb:281: warning: previous definition of MSWIN64 was here
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/bundler-2.6.9/lib/bundler/rubygems_ext.rb:67: warning: already initialized constant Gem::Platform::MINGW
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/site_ruby/3.4.0/rubygems/platform.rb:282: warning: previous definition of MINGW was here
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/bundler-2.6.9/lib/bundler/rubygems_ext.rb:68: warning: already initialized constant Gem::Platform::X64_MINGW
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/site_ruby/3.4.0/rubygems/platform.rb:284: warning: previous definition of X64_MINGW was here
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/bundler-2.6.9/lib/bundler/rubygems_ext.rb:70: warning: already initialized constant Gem::Platform::UNIVERSAL_MINGW
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/site_ruby/3.4.0/rubygems/platform.rb:285: warning: previous definition of UNIVERSAL_MINGW was here
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/bundler-2.6.9/lib/bundler/rubygems_ext.rb:71: warning: already initialized constant Gem::Platform::WINDOWS
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/site_ruby/3.4.0/rubygems/platform.rb:286: warning: previous definition of WINDOWS was here
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/bundler-2.6.9/lib/bundler/rubygems_ext.rb:72: warning: already initialized constant Gem::Platform::X64_LINUX
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/site_ruby/3.4.0/rubygems/platform.rb:287: warning: previous definition of X64_LINUX was here
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/bundler-2.6.9/lib/bundler/rubygems_ext.rb:73: warning: already initialized constant Gem::Platform::X64_LINUX_MUSL
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/site_ruby/3.4.0/rubygems/platform.rb:288: warning: previous definition of X64_LINUX_MUSL was here
+** Invoke assets:precompile (first_time)
+** Invoke environment (first_time)
+** Execute environment
+[boot:initialize] ArgumentError: key must be 16 bytes
+bin/rails aborted!
+ArgumentError: key must be 16 bytes (ArgumentError)
+
+        cipher.key = @secret
+                     ^^^^^^^
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/message_encryptor.rb:307:in 'OpenSSL::Cipher#key='
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/message_encryptor.rb:307:in 'ActiveSupport::MessageEncryptor#decrypt'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/message_encryptor.rb:261:in 'ActiveSupport::MessageEncryptor#read_message'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/messages/rotator.rb:25:in 'ActiveSupport::Messages::Rotator#read_message'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/message_encryptor.rb:245:in 'block (3 levels) in ActiveSupport::MessageEncryptor#decrypt_and_verify'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/messages/codec.rb:47:in 'block in ActiveSupport::Messages::Codec#catch_and_ignore'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/messages/codec.rb:46:in 'Kernel#catch'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/messages/codec.rb:46:in 'ActiveSupport::Messages::Codec#catch_and_ignore'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/message_encryptor.rb:244:in 'block (2 levels) in ActiveSupport::MessageEncryptor#decrypt_and_verify'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/messages/codec.rb:54:in 'block in ActiveSupport::Messages::Codec#catch_and_raise'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/messages/codec.rb:53:in 'Kernel#catch'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/messages/codec.rb:53:in 'ActiveSupport::Messages::Codec#catch_and_raise'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/message_encryptor.rb:243:in 'block in ActiveSupport::MessageEncryptor#decrypt_and_verify'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/messages/codec.rb:54:in 'block in ActiveSupport::Messages::Codec#catch_and_raise'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/messages/codec.rb:53:in 'Kernel#catch'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/messages/codec.rb:53:in 'ActiveSupport::Messages::Codec#catch_and_raise'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/message_encryptor.rb:242:in 'ActiveSupport::MessageEncryptor#decrypt_and_verify'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/encrypted_file.rb:109:in 'ActiveSupport::EncryptedFile#decrypt'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/encrypted_file.rb:72:in 'ActiveSupport::EncryptedFile#read'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/encrypted_configuration.rb:63:in 'ActiveSupport::EncryptedConfiguration#read'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/encrypted_configuration.rb:86:in 'ActiveSupport::EncryptedConfiguration#config'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/encrypted_configuration.rb:113:in 'ActiveSupport::EncryptedConfiguration#options'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/activesupport-8.0.1/lib/active_support/delegation.rb:186:in 'ActiveSupport::EncryptedConfiguration#method_missing'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/mission_control-jobs-1.1.0/lib/mission_control/jobs/engine.rb:38:in 'block in <class:Engine>'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/initializable.rb:32:in 'BasicObject#instance_exec'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/initializable.rb:32:in 'Rails::Initializable::Initializer#run'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/initializable.rb:61:in 'block in Rails::Initializable#run_initializers'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/tsort-0.2.0/lib/tsort.rb:231:in 'block in TSort.tsort_each'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/tsort-0.2.0/lib/tsort.rb:353:in 'block (2 levels) in TSort.each_strongly_connected_component'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/tsort-0.2.0/lib/tsort.rb:434:in 'TSort.each_strongly_connected_component_from'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/tsort-0.2.0/lib/tsort.rb:352:in 'block in TSort.each_strongly_connected_component'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/tsort-0.2.0/lib/tsort.rb:350:in 'Rails::Initializable::Collection#each'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/tsort-0.2.0/lib/tsort.rb:350:in 'Method#call'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/tsort-0.2.0/lib/tsort.rb:350:in 'TSort.each_strongly_connected_component'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/tsort-0.2.0/lib/tsort.rb:229:in 'TSort.tsort_each'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/tsort-0.2.0/lib/tsort.rb:208:in 'TSort#tsort_each'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/initializable.rb:60:in 'Rails::Initializable#run_initializers'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/application.rb:440:in 'Rails::Application#initialize!'
+/mnt/c/Users/mats/Downloads/hc-ruby/hc-rails-starter/config/environment.rb:6:in '<main>'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/3.4.0/bundled_gems.rb:82:in 'Kernel.require'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/3.4.0/bundled_gems.rb:82:in 'block (2 levels) in Kernel#replace_require'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/bootsnap-1.23.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:33:in 'Kernel#require'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/zeitwerk-2.7.4/lib/zeitwerk/core_ext/kernel.rb:34:in 'Kernel#require'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/application.rb:416:in 'Rails::Application#require_environment!'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/application.rb:564:in 'block in Rails::Application#run_tasks_blocks'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:281:in 'block in Rake::Task#execute'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:281:in 'Array#each'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:281:in 'Rake::Task#execute'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:219:in 'block in Rake::Task#invoke_with_call_chain'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:199:in 'Monitor#synchronize'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:199:in 'Rake::Task#invoke_with_call_chain'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:243:in 'block in Rake::Task#invoke_prerequisites'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:241:in 'Array#each'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:241:in 'Rake::Task#invoke_prerequisites'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:218:in 'block in Rake::Task#invoke_with_call_chain'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:199:in 'Monitor#synchronize'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:199:in 'Rake::Task#invoke_with_call_chain'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/task.rb:188:in 'Rake::Task#invoke'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/application.rb:188:in 'Rake::Application#invoke_task'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/application.rb:138:in 'block (2 levels) in Rake::Application#top_level'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/application.rb:138:in 'Array#each'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/application.rb:138:in 'block in Rake::Application#top_level'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/application.rb:147:in 'Rake::Application#run_with_threads'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/application.rb:132:in 'Rake::Application#top_level'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/commands/rake/rake_command.rb:27:in 'block (2 levels) in Rails::Command::RakeCommand.perform'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/application.rb:214:in 'Rake::Application#standard_exception_handling'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/commands/rake/rake_command.rb:27:in 'block in Rails::Command::RakeCommand.perform'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/commands/rake/rake_command.rb:44:in 'block in Rails::Command::RakeCommand.with_rake'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/rake-13.3.1/lib/rake/rake_module.rb:59:in 'Rake.with_application'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/commands/rake/rake_command.rb:41:in 'Rails::Command::RakeCommand.with_rake'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/commands/rake/rake_command.rb:20:in 'Rails::Command::RakeCommand.perform'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/command.rb:150:in 'Rails::Command.invoke_rake'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/command.rb:67:in 'block in Rails::Command.invoke'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/command.rb:143:in 'Rails::Command.with_argv'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/command.rb:63:in 'Rails::Command.invoke'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/commands.rb:18:in '<main>'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/3.4.0/bundled_gems.rb:82:in 'Kernel.require'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/3.4.0/bundled_gems.rb:82:in 'block (2 levels) in Kernel#replace_require'
+/home/mats/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/bootsnap-1.23.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:33:in 'Kernel#require'
+bin/rails:4:in '<main>'
+Tasks: TOP => assets:precompile => environment
