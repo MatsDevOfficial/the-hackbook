@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.1"
-gem "psych", "~> 4.0"
+gem "psych", "~> 5.3"
 gem "connection_pool", "~> 2.5"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
@@ -86,8 +86,8 @@ gem "paper_trail", "~> 17.0"
 
 gem "skylight", "~> 7.0"
 
-gem "sentry-ruby", "~> 5.28"
-gem "sentry-rails", "~> 5.28"
+gem "sentry-ruby", "~> 6.3"
+gem "sentry-rails", "~> 6.3"
 
 gem "redcarpet", "~> 3.6"
 

@@ -309,7 +309,8 @@ GEM
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
       rack
-    psych (4.0.6)
+    psych (5.3.1)
+      date
       stringio
     public_suffix (7.0.2)
     puma (7.2.0)
@@ -417,12 +418,13 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
-    sentry-rails (5.28.1)
-      railties (>= 5.0)
-      sentry-ruby (~> 5.28.1)
-    sentry-ruby (5.28.1)
+    sentry-rails (6.3.1)
+      railties (>= 5.2.0)
+      sentry-ruby (~> 6.3.1)
+    sentry-ruby (6.3.1)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
+      logger
     skylight (7.0.0)
       activesupport (>= 7.1.0)
     slack-ruby-client (3.1.0)
@@ -547,7 +549,7 @@ DEPENDENCIES
   pg (~> 1.5)
   pg_search (~> 2.3)
   propshaft
-  psych (~> 4.0)
+  psych (~> 5.3)
   puma (>= 5.0)
   pundit (~> 2.4)
   rack-attack (~> 6.7)
@@ -556,8 +558,8 @@ DEPENDENCIES
   redis (~> 5.0)
   rubocop-rails-omakase
   selenium-webdriver
-  sentry-rails (~> 5.28)
-  sentry-ruby (~> 5.28)
+  sentry-rails (~> 6.3)
+  sentry-ruby (~> 6.3)
   skylight (~> 7.0)
   slack-ruby-client (~> 3.0)
   solid_cable
