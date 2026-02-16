@@ -64,7 +64,7 @@ Add the following environment variables in **Settings** > **Environment Variable
 | Variable | Description |
 |---|---|
 | `GEOCODER_API_KEY` | Geocoding API key |
-| `SKYLIGHT_AUTHENTICATION` | Skylight performance monitoring |
+
 | `SENTRY_DSN` | Sentry error monitoring DSN |
 | `LOOPS_API_KEY` | Loops.so API key for mailer |
 | `MAILER_FROM` | Default from email address |

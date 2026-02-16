@@ -16,7 +16,7 @@ This template aims to be a starting point for Hack Club programs written in Rail
 - Solid Queue, Solid Cache, and Solid Cable for jobs, caching, and WebSockets
 - Inertia.js with Svelte 5, Vite, and TypeScript
 - Tailwind CSS 4
-- Sentry error tracking, Skylight performance monitoring
+- Sentry error tracking
 - Active Storage with Cloudflare R2 and image variant processing
 - Kamal deployment with Thruster for HTTP caching/compression
 
