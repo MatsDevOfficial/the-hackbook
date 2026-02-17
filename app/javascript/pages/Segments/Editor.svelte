@@ -41,6 +41,10 @@
   const form = useForm({
     title: props.segment.title,
     content: props.segment.content,
+    repo_link: props.segment.repo_link,
+    is_unlisted: props.segment.is_unlisted,
+    tags: props.segment.tags,
+    hours_logged: props.segment.hours_logged || 0,
     point_multiplier: props.segment.point_multiplier || (props.project?.project_type === 'club' ? 0.75 : 1.0),
     project_id: initialProjectId,
     publish: false,

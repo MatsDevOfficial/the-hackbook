@@ -291,8 +291,8 @@ class User < ApplicationRecord
     )
     
     project.segments.create!(
-      name: "Getting Started",
-      description: "Welcome to your new project! Start by editing this segment."
+      title: "Getting Started",
+      content: "Welcome to your new project! Start by editing this segment."
     )
   end
 end

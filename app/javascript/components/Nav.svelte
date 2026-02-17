@@ -23,6 +23,14 @@
     {#if shared.auth.user}
       <div class="flex items-center gap-4">
         <span class="text-gray-400 hidden md:inline">{shared.auth.user.display_name}</span>
+        {#if !shared.auth.user.github_connected}
+          <a
+            href={shared.github_auth_path}
+            class="bg-brand-blue text-white px-4 py-2 rounded-lg font-bold hover:bg-white hover:text-brand-blue transition-all"
+          >
+            Connect GitHub
+          </a>
+        {/if}
         <button
           onclick={signOut}
           class="bg-brand-red text-white px-4 py-2 rounded-lg font-bold hover:bg-white hover:text-brand-red transition-all cursor-pointer"

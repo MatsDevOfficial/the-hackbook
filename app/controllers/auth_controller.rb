@@ -92,9 +92,27 @@ class AuthController < ApplicationController
   end
 
   def github
-    # This will be replaced with real GitHub OAuth logic later
-    # For now, we stub it to capture the callback
-    render plain: "GitHub Callback Received! We will implement state matching and token exchange soon."
+    unless params[:code]
+      # Start OAuth flow
+      state = SecureRandom.hex(24)
+      session[:github_state] = state
+      redirect_to GitHubService.authorize_url(state), allow_other_host: true
+      return
+    end
+
+    # Handle Callback
+    if params[:state] != session[:github_state]
+      redirect_to root_path, alert: "GitHub CSRF validation failed"
+      return
+    end
+
+    token = GitHubService.exchange_code_for_token(params[:code])
+    if token
+      current_user.update!(github_token: token)
+      redirect_to home_path, notice: "GitHub connected successfully!"
+    else
+      redirect_to home_path, alert: "Failed to connect GitHub."
+    end
   end
 
   def destroy
