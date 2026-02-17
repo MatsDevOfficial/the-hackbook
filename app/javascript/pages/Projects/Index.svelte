@@ -15,8 +15,12 @@
 <div class="max-w-6xl mx-auto py-12 px-6">
   <div class="flex flex-col md:flex-row items-center justify-between mb-12 gap-6">
     <div>
-      <h1 class="font-black text-5xl md:text-6xl flavortown-heading">The Pantry</h1>
-      <p class="text-xl text-gray-600 mt-2">Browse the legendary projects cooked up by Hack Clubbers.</p>
+      <h1
+        class="text-5xl font-black brand-heading bg-black text-white px-8 py-4 inline-block transform -rotate-2 -translate-x-4"
+      >
+        SCRIPTORIUM
+      </h1>
+      <p class="text-xl text-gray-600 mt-6 font-medium">Your collection of ongoing manuscripts and technical drafts.</p>
     </div>
     <Link
       href="/projects/new"
@@ -47,10 +51,10 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {#each props.projects as project}
         <div
-          class="bg-white border-4 border-black p-6 rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] flavortown-card flex flex-col"
+          class="bg-white border-4 border-black p-6 rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,0.05)] brand-card flex flex-col"
         >
           <div class="flex items-start justify-between mb-4">
-            <h2 class="text-2xl font-black flavortown-heading">
+            <h2 class="text-2xl font-black brand-heading">
               <Link href="/projects/{project.id}" class="hover:text-brand-red transition-colors">{project.name}</Link>
             </h2>
             {#if project.is_unlisted}
@@ -89,7 +93,7 @@
     </div>
   {:else}
     <div class="text-center py-24 bg-white/50 border-4 border-dashed border-gray-300 rounded-3xl">
-      <p class="text-2xl text-gray-400 font-bold">No projects yet. Be the first to cook something up!</p>
+      <p class="text-2xl text-gray-400 font-bold">No manuscripts yet. Be the first to draft your masterpiece!</p>
     </div>
   {/if}
 </div>

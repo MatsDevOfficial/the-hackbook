@@ -25,11 +25,11 @@
   <!-- Header Section -->
   <div class="flex flex-col md:flex-row items-center justify-between mb-16 gap-8">
     <div class="text-center md:text-left">
-      <h1 class="font-black text-6xl md:text-7xl flavortown-heading leading-tight mb-4">
+      <h1 class="font-black text-6xl md:text-7xl brand-heading leading-tight mb-4">
         THE <span class="text-brand-red">MARKET</span>
       </h1>
       <p class="text-2xl font-bold text-gray-600 max-w-2xl">
-        Spend your hard-earned Flavortown Points on exclusive Hack Club gear and hardware.
+        Spend your hard-earned Pages on exclusive gear and hardware to fuel your next manuscript.
       </p>
     </div>
 
@@ -39,10 +39,10 @@
     >
       <span class="text-xs font-black uppercase tracking-widest text-black/60 mb-1">Your Total Balance</span>
       <div class="text-5xl font-black flex items-center gap-2">
-        <span class="text-3xl">🪙</span>
+        <span class="text-3xl">📄</span>
         {formatCurrency(props.user_balance)}
       </div>
-      <p class="text-xs font-bold mt-2 uppercase tracking-wide">Points Banked</p>
+      <p class="text-xs font-bold mt-2 uppercase tracking-wide">Pages Banked</p>
     </div>
   </div>
 
@@ -92,7 +92,7 @@
             <div class="flex items-center justify-between mt-auto pt-6 border-t-2 border-gray-100">
               <div class="flex flex-col">
                 <span class="text-[10px] font-black uppercase tracking-widest text-gray-400">Cost</span>
-                <span class="text-2xl font-black text-brand-blue">{prize.cost}pts</span>
+                <span class="text-2xl font-black text-brand-blue">{prize.cost}pgs</span>
               </div>
 
               <button
@@ -112,18 +112,18 @@
   {:else}
     <div class="text-center py-32 bg-gray-50 border-4 border-dashed border-black/10 rounded-3xl">
       <div class="text-6xl mb-6">🏜️</div>
-      <h3 class="text-3xl font-black flavortown-heading text-gray-400">The Market feels empty...</h3>
+      <h3 class="text-3xl font-black brand-heading text-gray-400">The Market feels empty...</h3>
       <p class="text-xl font-bold text-gray-400">Wait for the next restock!</p>
     </div>
   {/if}
 
   <!-- Footer Help -->
   <div class="mt-20 p-8 bg-brand-blue/5 border-4 border-dashed border-brand-blue/30 rounded-3xl text-center">
-    <h4 class="text-2xl font-black flavortown-heading text-brand-blue mb-4">How it works?</h4>
+    <h4 class="text-2xl font-black brand-heading text-brand-blue mb-4">How it works?</h4>
     <p class="text-xl font-bold text-gray-700 max-w-3xl mx-auto leading-relaxed">
-      You earn <span class="text-brand-red">Flavortown Points</span> for every hour you log in your projects. Better
-      projects have higher <span class="text-brand-blue">multipliers</span>. Once your project is verified, your points
-      are banked and ready to spend!
+      You earn <span class="text-brand-red">Pages</span> for every hour you log in your projects. Better projects have
+      higher <span class="text-brand-blue">multipliers</span>. Once your project is verified, your pages are banked and
+      ready to spend!
     </p>
   </div>
 </div>

@@ -52,13 +52,14 @@
       <div class="flex flex-col md:flex-row items-center gap-12">
         <div class="flex-1 text-center md:text-left">
           <BrandBadge text="Hack Club / The Hackbook" color="red" />
-          <h1 class="text-6xl md:text-8xl font-black mt-6 mb-8 text-black flavortown-heading leading-none">
-            Cook Up <br />
-            <span class="text-brand-red">Greatness</span>
+          <h1
+            class="text-7xl md:text-9xl font-black brand-heading text-white leading-none tracking-tighter mb-8 transform -rotate-2"
+          >
+            THE <span class="bg-white text-brand-red px-4 inline-block transform rotate-3">HACKBOOK</span>
           </h1>
           <p class="text-xl md:text-2xl text-gray-800 mb-10 max-w-2xl font-medium leading-relaxed">
-            The Hackbook is your guide to mastering the craft of building projects. From pixels (websites/apps/games) to
-            pcbs, we've got the recipe.
+            The Hackbook is your guide to mastering the craft of writing technical documents and projects. Every project
+            is a story waiting to be told.
           </p>
           <div class="flex flex-wrap gap-4 justify-center md:justify-start">
             <a
@@ -92,9 +93,9 @@
   <section class="py-24 bg-gray-50">
     <div class="max-w-7xl mx-auto px-6">
       <div class="mb-16">
-        <BrandBadge text="YS: You Ship" color="blue" />
-        <h2 class="text-4xl md:text-6xl font-black mt-4 flavortown-heading">The Development Menu</h2>
-        <p class="text-xl text-gray-600 mt-4">The categories you can write segments about.</p>
+        <BrandBadge text="YS: You Scribble" color="blue" />
+        <h2 class="text-4xl md:text-6xl font-black mt-4 brand-heading">The Writing Collection</h2>
+        <p class="text-xl text-gray-600 mt-4">The categories of manuscripts you can draft.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -109,8 +110,8 @@
   <section class="py-24 border-t-8 border-black blueprint-grid">
     <div class="max-w-7xl mx-auto px-6 text-center">
       <div class="inline-block relative">
-        <BrandBadge text="WS: We Ship" color="orange" />
-        <h2 class="text-4xl md:text-7xl font-black mt-6 mb-8 flavortown-heading">Finalize & Win</h2>
+        <BrandBadge text="WS: We Store" color="orange" />
+        <h2 class="text-4xl md:text-7xl font-black mt-6 mb-8 brand-heading">Publish & Archive</h2>
       </div>
       <p class="text-2xl text-gray-700 max-w-3xl mx-auto mb-12 font-medium">
         Finish segments for the Hackbook and you might just walk away with some legendary prizes.
@@ -118,9 +119,9 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div class="bg-white border-4 border-black p-8 rounded-2xl hover:bg-brand-yellow transition-colors group">
-          <h4 class="text-5xl font-black mb-4 group-hover:scale-110 transition-transform">🏆</h4>
-          <h3 class="text-2xl font-bold mb-2">Prizes</h3>
-          <p>For the most flavorful and technically impressive segments. We ship prizes from the shop.</p>
+          <h4 class="text-5xl font-black mb-4 group-hover:scale-110 transition-transform">🖋️</h4>
+          <h3 class="text-2xl font-bold mb-2">Rewards</h3>
+          <p>For the most eloquent and detailed manuscripts. We reward top authors with exclusive gear.</p>
         </div>
         <div class="bg-white border-4 border-black p-8 rounded-2xl hover:bg-brand-green transition-colors group">
           <h4 class="text-5xl font-black mb-4 group-hover:scale-110 transition-transform">🎟️</h4>

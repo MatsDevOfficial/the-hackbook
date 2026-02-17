@@ -13,17 +13,15 @@
       href="/admin/users"
       class="bg-white border-4 border-black p-8 rounded-2xl shadow-[8px_8px_0px_0px_rgba(236,55,80,0.1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all group"
     >
-      <h3 class="font-black text-3xl mb-2 flavortown-heading group-hover:text-brand-red transition-colors">Users</h3>
-      <p class="text-gray-600 font-medium">Manage the legendary chefs of the Hackbook.</p>
+      <h3 class="font-black text-3xl mb-2 brand-heading group-hover:text-brand-red transition-colors">Users</h3>
+      <p class="text-gray-600 font-medium">Manage the legendary members of the Hackbook.</p>
     </a>
 
     <a
       href="/admin/projects"
       class="bg-white border-4 border-black p-8 rounded-2xl shadow-[8px_8px_0px_0px_rgba(55,148,236,0.1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all group"
     >
-      <h3 class="font-black text-3xl mb-2 flavortown-heading group-hover:text-brand-blue transition-colors">
-        Projects
-      </h3>
+      <h3 class="font-black text-3xl mb-2 brand-heading group-hover:text-brand-blue transition-colors">Projects</h3>
       <p class="text-gray-600 font-medium">Review and oversee all active development projects.</p>
     </a>
 

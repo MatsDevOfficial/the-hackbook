@@ -114,7 +114,7 @@
       <div class="grid grid-cols-1 gap-4">
         <div>
           <label for="point_multiplier" class="block text-sm font-medium text-gray-700"
-            >Point Multiplier (Admin Only)</label
+            >Page Multiplier (Admin Only)</label
           >
           <input
             type="number"

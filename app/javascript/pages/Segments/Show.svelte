@@ -16,7 +16,9 @@
 <div class="max-w-4xl mx-auto py-12 px-6">
   <div class="bg-white border-4 border-black p-8 rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,0.1)] mb-8">
     <div class="flex items-center justify-between mb-8 border-b-4 border-black/5 pb-6">
-      <h1 class="font-black text-5xl flavortown-heading">{segment.title}</h1>
+      <h1 class="text-3xl font-black brand-heading border-b-4 border-black pb-4 mb-4">
+        {segment.title || 'Untitled Document'}
+      </h1>
       <div class="flex gap-3">
         <Link
           href="/segments/{segment.id}/edit"

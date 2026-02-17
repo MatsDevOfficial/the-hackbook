@@ -13,7 +13,7 @@
 <nav
   class="bg-black text-white px-6 py-4 flex items-center justify-between border-b-4 border-brand-red sticky top-0 z-50"
 >
-  <Link href="/" class="text-2xl font-black tracking-tighter flavortown-heading hover:text-brand-red transition-colors">
+  <Link href="/" class="text-2xl font-black tracking-tighter brand-heading hover:text-brand-red transition-colors">
     THE HACKBOOK
   </Link>
 

@@ -80,7 +80,9 @@
 <div class="max-w-6xl mx-auto py-12 px-6">
   <div class="flex items-center justify-between mb-8">
     <div class="flex items-center gap-4">
-      <h1 class="font-black text-5xl flavortown-heading">{props.is_new ? 'New Segment' : 'Edit Segment'}</h1>
+      <h1 class="text-5xl font-black brand-heading border-b-8 border-black pb-4 mb-12">
+        {props.is_new ? 'New Document' : 'Edit Document'}
+      </h1>
       <button
         type="button"
         onclick={() => (showSettings = !showSettings)}
@@ -121,7 +123,7 @@
           class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 p-8 bg-brand-blue/5 border-4 border-dashed border-brand-blue/20 rounded-2xl transition-all"
         >
           <div class="space-y-6">
-            <h3 class="font-black text-xl uppercase tracking-widest text-brand-blue mb-4">Project Settings</h3>
+            <h1 class="font-black text-5xl brand-heading">{props.is_new ? 'New Document' : 'Edit Document'}</h1>
 
             <div class="grid grid-cols-2 gap-4">
               <div>
@@ -204,7 +206,7 @@
                 >
                   <option value="">Select a prize...</option>
                   {#each props.project.available_prizes as prize}
-                    <option value={prize.id}>{prize.name} ({prize.cost}pts)</option>
+                    <option value={prize.id}>{prize.name} ({prize.cost}pgs)</option>
                   {/each}
                 </select>
               </div>
@@ -217,7 +219,7 @@
               <div class="text-6xl font-black">
                 {Math.round($form.hours_logged * $form.point_multiplier * 100) / 100}
               </div>
-              <div class="text-sm font-bold text-gray-400 mt-2 italic">Points calculated instantly!</div>
+              <div class="text-sm font-bold text-gray-400 mt-2 italic">Pages calculated instantly!</div>
             </div>
           </div>
         </div>

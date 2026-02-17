@@ -14,8 +14,8 @@
 
 <div class="max-w-6xl mx-auto py-12 px-6">
   <div class="mb-12">
-    <h1 class="font-black text-5xl md:text-6xl flavortown-heading">Admin: Users</h1>
-    <p class="text-xl text-gray-600 mt-2">Manage all chefs in the Hackbook network.</p>
+    <h1 class="font-black text-5xl md:text-6xl brand-heading">Admin: Users</h1>
+    <p class="text-xl text-gray-600 mt-2">Manage all members in the Hackbook network.</p>
   </div>
 
   <form onsubmit={search} class="mb-12">

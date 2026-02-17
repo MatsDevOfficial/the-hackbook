@@ -13,6 +13,8 @@
   let colorClass = $derived(colorMap[color] || colorMap.red)
 </script>
 
-<span class="inline-block px-3 py-1 font-bold text-xs uppercase tracking-wider rounded-full shadow-sm {colorClass} flavortown-heading">
+<span
+  class="inline-block px-3 py-1 font-bold text-xs uppercase tracking-wider rounded-full shadow-sm {colorClass} brand-heading"
+>
   {text}
 </span>

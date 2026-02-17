@@ -37,7 +37,7 @@
   <div class="bg-white border-4 border-black p-8 rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,0.1)] mb-8">
     <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
       <div>
-        <h1 class="font-black text-5xl md:text-6xl flavortown-heading leading-none">{project.name}</h1>
+        <h1 class="font-black text-5xl md:text-6xl brand-heading leading-none">{project.name}</h1>
         <div class="flex items-center gap-4 mt-4">
           <span
             class="px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest border-2 border-black {project.project_type ===
@@ -94,26 +94,26 @@
         <div class="text-3xl font-black">x{project.point_multiplier}</div>
       </div>
       <div class="bg-brand-yellow/10 p-4 rounded-xl border-2 border-brand-yellow/20">
-        <div class="text-xs font-black uppercase tracking-widest text-brand-yellow mb-1">Total Points</div>
+        <div class="text-xs font-black uppercase tracking-widest text-brand-yellow mb-1">Total Pages</div>
         <div class="text-3xl font-black">{Math.round(project.hours_logged * project.point_multiplier * 100) / 100}</div>
       </div>
     </div>
 
     {#if project.project_type === 'club' && project.club_prizes}
       <div class="mb-8 p-6 bg-brand-yellow/10 border-4 border-dashed border-brand-yellow rounded-2xl">
-        <h3 class="text-xl font-black flavortown-heading text-brand-yellow-dark mb-2">🎁 Club Prizes</h3>
+        <h3 class="text-xl font-black brand-heading text-brand-yellow-dark mb-2">🎁 Club Prizes</h3>
         <p class="text-lg text-gray-800">{project.club_prizes}</p>
       </div>
     {/if}
 
     <div class="mb-12">
       <div class="flex items-center justify-between mb-6">
-        <h3 class="font-black text-2xl flavortown-heading">Segments</h3>
+        <h3 class="font-black text-2xl brand-heading">Chapters</h3>
         <Link
           href="/segments/new?project_id={project.id}"
           class="bg-black text-white px-6 py-2 rounded-xl font-bold hover:bg-brand-red transition-all shadow-[4px_4px_0px_0px_rgba(236,55,80,0.3)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
         >
-          + Add Segment
+          + New Chapter
         </Link>
       </div>
 
@@ -143,7 +143,7 @@
 
     {#if project.project_type === 'club'}
       <div class="mb-12">
-        <h3 class="font-black text-2xl flavortown-heading mb-6">Crew Members</h3>
+        <h3 class="font-black text-2xl brand-heading mb-6">Authors</h3>
         <div class="flex flex-wrap gap-4 mb-8">
           {#each project.members as member}
             <div class="flex flex-col items-center gap-2 group">
@@ -159,7 +159,7 @@
 
         {#if can.update}
           <div class="bg-gray-50 p-6 rounded-2xl border-4 border-black border-dashed">
-            <h4 class="font-black text-lg mb-4 uppercase">Invite more Crew</h4>
+            <h4 class="font-black text-lg mb-4 uppercase">Invite more Authors</h4>
             <form onsubmit={inviteMember} class="flex flex-col sm:flex-row gap-3">
               <input
                 type="email"
@@ -224,7 +224,7 @@
 
   <div class="mt-8">
     <Link href="/projects" class="font-bold text-gray-500 hover:text-black transition-colors flex items-center gap-2">
-      ← Back to the Pantry
+      ← Back to the Scriptorium
     </Link>
   </div>
 </div>

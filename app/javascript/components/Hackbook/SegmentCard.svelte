@@ -1,11 +1,16 @@
 <script lang="ts">
   import BrandBadge from './BrandBadge.svelte'
 
-  let { title, description, tags = [], color = 'red' }: { 
-    title: string; 
-    description: string; 
-    tags?: string[];
-    color?: string;
+  let {
+    title,
+    description,
+    tags = [],
+    color = 'red',
+  }: {
+    title: string
+    description: string
+    tags?: string[]
+    color?: string
   } = $props()
 
   const borderMap: Record<string, string> = {
@@ -20,7 +25,9 @@
   let borderClass = $derived(borderMap[color] || borderMap.red)
 </script>
 
-<div class="bg-white border-4 p-6 rounded-xl shadow-[8px_8px_0px_0px_rgba(0,0,0,0.1)] flavortown-card {borderClass}">
+<div
+  class="bg-white border-4 border-black rounded-2xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,0.1)] brand-card transition-all"
+>
   <div class="flex flex-wrap gap-2 mb-3">
     {#each tags as tag}
       <BrandBadge text={tag} {color} />

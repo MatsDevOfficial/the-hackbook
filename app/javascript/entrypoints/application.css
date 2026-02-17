@@ -17,24 +17,24 @@
 @plugin '@tailwindcss/forms';
 
 .blueprint-grid {
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(236, 55, 80, 0.1) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(236, 55, 80, 0.1) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
-.flavortown-heading {
+.brand-heading {
   font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: -0.02em;
   transform: rotate(-1deg);
 }
 
-.flavortown-card {
+.brand-card {
   transition: transform 0.2s ease-in-out;
 }
 
-.flavortown-card:hover {
+.brand-card:hover {
   transform: scale(1.02) rotate(1deg);
 }
 
@@ -109,8 +109,8 @@
   margin-bottom: 0.25rem;
 }
 
-.markdown-content li > ul,
-.markdown-content li > ol {
+.markdown-content li>ul,
+.markdown-content li>ol {
   margin-top: 0.25rem;
   margin-bottom: 0;
 }

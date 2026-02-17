@@ -61,7 +61,7 @@ class Project < ApplicationRecord
     Prize.all.order(cost: :asc)
   end
 
-  def point_balance
+  def page_balance
     (hours_logged || 0) * (point_multiplier || 1.0)
   end
 
