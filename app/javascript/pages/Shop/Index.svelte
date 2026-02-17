@@ -29,7 +29,7 @@
         THE <span class="text-brand-red">MARKET</span>
       </h1>
       <p class="text-2xl font-bold text-gray-600 max-w-2xl">
-        Spend your hard-earned Pages on exclusive gear and hardware to fuel your next manuscript.
+        Spend your hard-earned Pages on gear and hardware to fuel your next segments.
       </p>
     </div>
 

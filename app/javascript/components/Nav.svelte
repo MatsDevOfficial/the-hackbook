@@ -21,6 +21,10 @@
     <Link href="/docs" class="font-bold hover:text-brand-red transition-colors">Docs</Link>
     <Link href="/shop" class="font-bold hover:text-brand-red transition-colors">Market</Link>
 
+    {#if shared.auth.user?.is_staff}
+      <Link href="/admin" class="font-bold text-brand-yellow hover:text-white transition-colors">Admin</Link>
+    {/if}
+
     {#if shared.auth.user}
       <div class="flex items-center gap-4">
         <span class="text-gray-400 hidden md:inline">{shared.auth.user.display_name}</span>
