@@ -1,6 +1,6 @@
-# GitHub Integration Service (Mock)
+require "base64"
 
-module GitHubService
+module GithubService
   def self.authorize_url(state)
     client_id = ENV.fetch("GITHUB_CLIENT_ID", nil)
     "https://github.com/login/oauth/authorize?client_id=#{client_id}&state=#{state}&scope=repo,user"
