@@ -116,6 +116,7 @@ Rails.application.routes.draw do
 
   get "auth/hca/start" => "auth#new", as: :signin
   get "auth/hca/callback" => "auth#create", as: :hca_callback
+  get "auth/github" => "auth#github", as: :github_auth
   get "auth/github/callback" => "auth#github", as: :github_callback
   get "auth/bypass" => "auth#bypass", as: :auth_bypass if Rails.env.development?
   delete "auth/signout" => "auth#destroy", as: :signout
