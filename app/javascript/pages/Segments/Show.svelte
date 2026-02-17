@@ -4,7 +4,13 @@
   import type { ProjectDetail } from '@/types'
 
   let { segment }: { segment: any } = $props()
-  let htmlContent = $derived(marked.parseSync(segment.content))
+  let htmlContent = $state('')
+
+  $effect(() => {
+    ;(async () => {
+      htmlContent = await marked.parse(segment.content || '')
+    })()
+  })
 </script>
 
 <div class="max-w-4xl mx-auto py-12 px-6">
