@@ -53,7 +53,7 @@ class SegmentsController < ApplicationController
   def update
     if @segment.update(segment_params.except(:selected_prizes))
       @segment.project.update(selected_prizes: segment_params[:selected_prizes]) if segment_params[:selected_prizes]
-      GitHubService.publish_segment(@segment) if ActiveModel::Type::Boolean.new.cast(params[:publish])
+      ::GitHubService.publish_segment(@segment) if ActiveModel::Type::Boolean.new.cast(params[:publish])
       redirect_to project_path(@segment.project), notice: "Segment updated."
     else
       redirect_back fallback_location: edit_segment_path(@segment), inertia: { errors: @segment.errors.messages }

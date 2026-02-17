@@ -96,7 +96,7 @@ class AuthController < ApplicationController
       # Start OAuth flow
       state = SecureRandom.hex(24)
       session[:github_state] = state
-      redirect_to GitHubService.authorize_url(state), allow_other_host: true
+      redirect_to ::GitHubService.authorize_url(state), allow_other_host: true
       return
     end
 
@@ -106,7 +106,7 @@ class AuthController < ApplicationController
       return
     end
 
-    token = GitHubService.exchange_code_for_token(params[:code])
+    token = ::GitHubService.exchange_code_for_token(params[:code])
     if token
       current_user.update!(github_token: token)
       redirect_to home_path, notice: "GitHub connected successfully!"
