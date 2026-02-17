@@ -295,3 +295,4 @@ class User < ApplicationRecord
       description: "Welcome to your new project! Start by editing this segment."
     )
   end
+end
