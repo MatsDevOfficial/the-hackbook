@@ -45,9 +45,7 @@ class Project < ApplicationRecord
   has_many :members, through: :project_memberships, source: :user
   has_many :project_invitations, dependent: :destroy
 
-  attribute :project_type, :string
   enum :project_type, { personal: "personal", club: "club" }, default: "personal"
-
   validates :project_type, presence: true
 
   validates :name, presence: true
@@ -55,8 +53,7 @@ class Project < ApplicationRecord
   validates :point_multiplier, numericality: { greater_than: 0 }
   validates :is_unlisted, inclusion: { in: [ true, false ] }
   validates :demo_link, format: { with: /\Ahttps?:\/\/\S+\z/i, message: "must be a valid URL starting with http:// or https://" }, allow_blank: true
-  validates :repo_link, format: :url_or_blank
-  validates :github_repo_url, format: :url_or_blank
+  validate :url_or_blank
 
   scope :listed, -> { where(is_unlisted: false) }
 
