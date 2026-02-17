@@ -55,7 +55,31 @@ class Project < ApplicationRecord
   validates :point_multiplier, numericality: { greater_than: 0 }
   validates :is_unlisted, inclusion: { in: [ true, false ] }
   validates :demo_link, format: { with: /\Ahttps?:\/\/\S+\z/i, message: "must be a valid URL starting with http:// or https://" }, allow_blank: true
-  validates :repo_link, format: { with: /\Ahttps?:\/\/\S+\z/i, message: "must be a valid URL starting with http:// or https://" }, allow_blank: true
+  validates :repo_link, format: :url_or_blank
+  validates :github_repo_url, format: :url_or_blank
 
   scope :listed, -> { where(is_unlisted: false) }
+
+  def available_prizes
+    # Mock shop items for now
+    [
+      { id: "blahaj", name: "Blahaj", cost: 100 },
+      { id: "stickers", name: "Hack Club Stickers", cost: 10 },
+      { id: "notebook", name: "Hack Club Notebook", cost: 50 }
+    ]
+  end
+
+  private
+
+  def url_or_blank
+    return if repo_link.blank? && github_repo_url.blank?
+    
+    # Generic URL validation if present
+    [repo_link, github_repo_url].each do |url|
+      next if url.blank?
+      unless url =~ /\Ahttps?:\/\/\S+\z/i
+        errors.add(:base, "Link #{url} must be a valid URL starting with http:// or https://")
+      end
+    end
+  end
 end

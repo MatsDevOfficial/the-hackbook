@@ -26,6 +26,8 @@ class User < ApplicationRecord
   include Discardable
   include PgSearch::Model
 
+  after_create :create_default_project!
+
   has_paper_trail
 
   pg_search_scope :search, against: [ :display_name, :email ], using: { tsearch: { prefix: true } }
@@ -41,6 +43,7 @@ class User < ApplicationRecord
   has_many :reviewed_ships, class_name: "Ship", foreign_key: :reviewer_id, dependent: :nullify, inverse_of: :reviewer
 
   encrypts :hca_token
+  encrypts :github_token
 
   validates :avatar, :display_name, :email, :timezone, presence: true
   validates :slack_id, presence: true
@@ -277,4 +280,18 @@ class User < ApplicationRecord
 
     slack_id.delete_suffix("_DEV")
   end
-end
+
+  private
+
+  def create_default_project!
+    project = projects.create!(
+      name: "#{display_name}'s Project",
+      project_type: :personal,
+      description: "My first project on The Hackbook!"
+    )
+    
+    project.segments.create!(
+      name: "Getting Started",
+      description: "Welcome to your new project! Start by editing this segment."
+    )
+  end

@@ -25,6 +25,13 @@
   let props: {
     segment: SegmentForm
     is_new: boolean
+    project?: {
+      id: number
+      name: string
+      project_type: 'personal' | 'club'
+      selected_prizes: string[]
+      available_prizes: Array<{ id: string; name: string; cost: number }>
+    }
     projects?: Array<{ id: number; name: string }>
   } = $props()
 
@@ -39,18 +46,20 @@
     is_unlisted: props.segment.is_unlisted,
     tags: props.segment.tags,
     hours_logged: props.segment.hours_logged || 0,
-    point_multiplier: props.segment.point_multiplier || 1.0,
+    point_multiplier: props.segment.point_multiplier || (props.project?.project_type === 'club' ? 0.75 : 1.0),
     project_id: initialProjectId,
     publish: false,
+    selected_prizes: props.project?.selected_prizes || [],
   })
 
   let previewContent = $state('')
   let showSettings = $state(false)
 
   $effect(() => {
-    marked.parse($form.content).then((parsed) => {
-      previewContent = String(parsed)
-    })
+    ;(async () => {
+      const result = await marked.parse($form.content)
+      previewContent = String(result)
+    })()
   })
 
   function submit(e: Event) {
@@ -95,6 +104,16 @@
       >
     </div>
   </div>
+
+  {#if props.project && props.project.project_type === 'club'}
+    <div class="mb-8 bg-brand-yellow/10 border-4 border-brand-yellow/50 p-6 rounded-2xl flex items-center gap-4">
+      <span class="text-4xl">⚠️</span>
+      <div>
+        <h4 class="font-black uppercase tracking-widest text-brand-yellow-dark">Club Project Notice</h4>
+        <p class="font-bold">Club projects receive lower point multipliers than personal projects.</p>
+      </div>
+    </div>
+  {/if}
 
   <form onsubmit={submit} class="space-y-8">
     <div class="bg-white border-4 border-black p-8 rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,0.1)]">
@@ -164,6 +183,44 @@
               />
               <label for="is_unlisted" class="font-black uppercase text-xs tracking-widest">Unlisted (Draft)</label>
             </div>
+
+            {#if props.project && props.project.project_type === 'club'}
+              <div>
+                <label
+                  for="prizes-select"
+                  class="block font-black uppercase text-xs tracking-widest mb-2 text-brand-blue">Selected Prizes</label
+                >
+                <div class="flex flex-wrap gap-2 mb-2">
+                  {#each $form.selected_prizes as prizeId}
+                    <span
+                      class="bg-brand-blue/10 text-brand-blue px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest border-2 border-brand-blue/20 flex items-center gap-2"
+                    >
+                      {props.project.available_prizes.find((p) => p.id === prizeId)?.name || prizeId}
+                      <button
+                        type="button"
+                        onclick={() => ($form.selected_prizes = $form.selected_prizes.filter((id) => id !== prizeId))}
+                        class="hover:text-brand-red">×</button
+                      >
+                    </span>
+                  {/each}
+                </div>
+                <select
+                  id="prizes-select"
+                  class="w-full border-4 border-black rounded-xl px-4 py-3 font-bold outline-none focus:ring-4 focus:ring-brand-blue/20 transition-all"
+                  onchange={(e) => {
+                    const val = (e.target as HTMLSelectElement).value
+                    if (val && !$form.selected_prizes.includes(val)) {
+                      $form.selected_prizes = [...$form.selected_prizes, val]
+                    }
+                  }}
+                >
+                  <option value="">Select a prize...</option>
+                  {#each props.project.available_prizes as prize}
+                    <option value={prize.id}>{prize.name} ({prize.cost}pts)</option>
+                  {/each}
+                </select>
+              </div>
+            {/if}
           </div>
 
           <div class="flex flex-col justify-center items-center border-l-4 border-black/5 pl-8">

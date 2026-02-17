@@ -10,21 +10,30 @@ class SegmentsController < ApplicationController
   end
 
   def new
-    @segment = current_user.segments.build
+    project_id = params[:project_id] || current_user.projects.first&.id
+    @project = current_user.projects.find(project_id) if project_id
+    
+    @segment = (@project ? @project.segments : current_user.segments).build
+    
     render inertia: "Segments/Editor", props: {
       segment: { 
         title: "", content: "", 
         demo_link: "", repo_link: "", 
         is_unlisted: false, tags: [], 
-        hours_logged: 0, point_multiplier: 1.0 
+        hours_logged: 0, point_multiplier: 1.0,
+        project_id: @project&.id
       },
-      is_new: true
+      is_new: true,
+      project: @project ? serialize_project(@project) : nil,
+      projects: current_user.projects.map { |p| { id: p.id, name: p.name } }
     }
   end
 
   def create
-    @segment = current_user.segments.build(segment_params)
+    @segment = current_user.segments.build(segment_params.except(:selected_prizes))
+    
     if @segment.save
+      @segment.project.update(selected_prizes: segment_params[:selected_prizes]) if segment_params[:selected_prizes]
       GitHubService.publish_segment(@segment) if params[:publish] == "true"
       redirect_to project_path(@segment.project), notice: "Segment created."
     else
@@ -35,12 +44,15 @@ class SegmentsController < ApplicationController
   def edit
     render inertia: "Segments/Editor", props: {
       segment: serialize_segment(@segment),
-      is_new: false
+      is_new: false,
+      project: serialize_project(@segment.project),
+      projects: current_user.projects.map { |p| { id: p.id, name: p.name } }
     }
   end
 
   def update
-    if @segment.update(segment_params)
+    if @segment.update(segment_params.except(:selected_prizes))
+      @segment.project.update(selected_prizes: segment_params[:selected_prizes]) if segment_params[:selected_prizes]
       GitHubService.publish_segment(@segment) if params[:publish] == "true"
       redirect_to project_path(@segment.project), notice: "Segment updated."
     else
@@ -88,7 +100,8 @@ class SegmentsController < ApplicationController
       :demo_link, :repo_link, :is_unlisted, 
       :hours_logged, :point_multiplier, 
       :project_id,
-      tags: [] 
+      tags: [],
+      selected_prizes: []
     ])
   end
 
@@ -103,7 +116,18 @@ class SegmentsController < ApplicationController
       tags: segment.tags,
       hours_logged: segment.hours_logged,
       point_multiplier: segment.point_multiplier.to_f,
+      project_id: segment.project_id,
       created_at: segment.created_at.strftime("%B %d, %Y")
+    }
+  end
+
+  def serialize_project(project)
+    {
+      id: project.id,
+      name: project.name,
+      project_type: project.project_type,
+      selected_prizes: project.selected_prizes,
+      available_prizes: project.available_prizes
     }
   end
 end

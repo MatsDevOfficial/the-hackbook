@@ -1,13 +1,15 @@
-class GitHubService
-  def self.publish_segment(segment)
-    project = segment.project
-    return unless project&.github_repo.present?
+# GitHub Integration Service (Mock)
 
-    # This is a mock implementation for now
-    # In a real app, we would use octokit to push content
-    Rails.logger.info("MOCK: Publishing segment '#{segment.title}' to GitHub repo: #{project.github_repo}")
+module GitHubService
+  def self.publish_segment(segment)
+    user = segment.user
+    project = segment.project
     
-    # Simulate success
+    # Mocking GitHub API call
+    Rails.logger.info "GitHubService: Publishing segment '#{segment.title}' to repo for project '#{project.name}'"
+    Rails.logger.info "GitHubService: Creating repo if not exists..."
+    
+    # This would normally use user.github_token to talk to Octokit
     true
   end
 end

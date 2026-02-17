@@ -39,6 +39,12 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.build(project_params)
+    
+    # Set default multiplier for club projects
+    if @project.club? && @project.point_multiplier == 1.0
+      @project.point_multiplier = 0.75
+    end
+    
     authorize @project
 
     if @project.save
@@ -130,7 +136,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.expect(project: [ :name, :description, :demo_link, :repo_link, :is_unlisted, :hours_logged, :point_multiplier, :project_type, :club_prizes, :github_repo, tags: [] ])
+    params.expect(project: [ :name, :description, :demo_link, :repo_link, :is_unlisted, :hours_logged, :point_multiplier, :project_type, :club_prizes, :github_repo, :github_repo_url, :github_repo_name, tags: [], selected_prizes: [] ])
   end
 
   def serialize_project_card(project)
@@ -158,7 +164,11 @@ class ProjectsController < ApplicationController
       point_multiplier: project.point_multiplier.to_f,
       project_type: project.project_type,
       club_prizes: project.club_prizes,
+      selected_prizes: project.selected_prizes,
+      available_prizes: project.available_prizes,
       github_repo: project.github_repo,
+      github_repo_url: project.github_repo_url,
+      github_repo_name: project.github_repo_name,
       user_display_name: project.user.display_name,
       created_at: project.created_at.strftime("%B %d, %Y"),
       segments: project.segments.order(created_at: :desc).map { |s| { id: s.id, title: s.title, created_at: s.created_at.strftime("%B %d, %Y") } },
