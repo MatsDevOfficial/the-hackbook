@@ -73,17 +73,6 @@
     </div>
 
     <div>
-      <label for="demo_link" class="block text-sm font-medium text-gray-700">Demo link</label>
-      <input
-        type="url"
-        id="demo_link"
-        bind:value={$form.demo_link}
-        class="mt-1 block w-full border border-gray-300 rounded px-3 py-2"
-        placeholder="https://"
-      />
-    </div>
-
-    <div>
       <label for="repo_link" class="block text-sm font-medium text-gray-700">Repo link</label>
       <input
         type="url"
@@ -91,7 +80,9 @@
         bind:value={$form.repo_link}
         class="mt-1 block w-full border border-gray-300 rounded px-3 py-2"
         placeholder="https://"
+        disabled
       />
+      <p class="text-xs text-gray-500 mt-1">De GitHub bot maakt de repository aan en plaatst de link hier.</p>
     </div>
 
     <div>
@@ -119,41 +110,23 @@
       </div>
     {/if}
 
-    <div>
-      <label for="github_repo" class="block text-sm font-medium text-gray-700"
-        >GitHub Repository (for Segment sync)</label
-      >
-      <input
-        type="text"
-        id="github_repo"
-        bind:value={$form.github_repo}
-        class="mt-1 block w-full border border-gray-300 rounded px-3 py-2"
-        placeholder="username/repo"
-      />
-    </div>
-    <div class="grid grid-cols-2 gap-4">
-      <div>
-        <label for="hours_logged" class="block text-sm font-medium text-gray-700">Hours Logged</label>
-        <input
-          type="number"
-          id="hours_logged"
-          bind:value={$form.hours_logged}
-          min="0"
-          class="mt-1 block w-full border border-gray-300 rounded px-3 py-2"
-        />
+    {#if shared.auth.user?.is_admin}
+      <div class="grid grid-cols-1 gap-4">
+        <div>
+          <label for="point_multiplier" class="block text-sm font-medium text-gray-700"
+            >Point Multiplier (Admin Only)</label
+          >
+          <input
+            type="number"
+            id="point_multiplier"
+            bind:value={$form.point_multiplier}
+            step="0.05"
+            min="0.1"
+            class="mt-1 block w-full border border-gray-300 rounded px-3 py-2"
+          />
+        </div>
       </div>
-      <div>
-        <label for="point_multiplier" class="block text-sm font-medium text-gray-700">Point Multiplier</label>
-        <input
-          type="number"
-          id="point_multiplier"
-          bind:value={$form.point_multiplier}
-          step="0.1"
-          min="0.1"
-          class="mt-1 block w-full border border-gray-300 rounded px-3 py-2"
-        />
-      </div>
-    </div>
+    {/if}
 
     <div>
       <label class="inline-flex items-center gap-2">

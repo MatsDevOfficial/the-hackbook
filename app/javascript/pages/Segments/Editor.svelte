@@ -41,11 +41,6 @@
   const form = useForm({
     title: props.segment.title,
     content: props.segment.content,
-    demo_link: props.segment.demo_link,
-    repo_link: props.segment.repo_link,
-    is_unlisted: props.segment.is_unlisted,
-    tags: props.segment.tags,
-    hours_logged: props.segment.hours_logged || 0,
     point_multiplier: props.segment.point_multiplier || (props.project?.project_type === 'club' ? 0.75 : 1.0),
     project_id: initialProjectId,
     publish: false,
@@ -65,9 +60,9 @@
   function submit(e: Event) {
     e.preventDefault()
     if (props.is_new) {
-      form.post('/segments')
+      $form.post('/segments')
     } else {
-      form.patch(`/segments/${props.segment.id}`)
+      $form.patch(`/segments/${props.segment.id}`)
     }
   }
 
@@ -150,17 +145,6 @@
                   class="w-full border-4 border-black rounded-xl px-4 py-3 font-bold outline-none focus:ring-4 focus:ring-brand-blue/20 transition-all"
                 />
               </div>
-            </div>
-
-            <div>
-              <label for="demo_link" class="block font-black uppercase text-xs tracking-widest mb-2">Demo Link</label>
-              <input
-                id="demo_link"
-                bind:value={$form.demo_link}
-                type="url"
-                placeholder="https://..."
-                class="w-full border-4 border-black rounded-xl px-4 py-3 font-bold outline-none focus:ring-4 focus:ring-brand-blue/20 transition-all"
-              />
             </div>
 
             <div>
@@ -261,8 +245,8 @@
         </div>
 
         <div class="flex flex-col">
-          <label id="preview-label" class="block font-black uppercase text-sm tracking-widest mb-2 text-brand-blue"
-            >Live Preview</label
+          <span id="preview-label" class="block font-black uppercase text-sm tracking-widest mb-2 text-brand-blue"
+            >Live Preview</span
           >
           <div
             aria-labelledby="preview-label"

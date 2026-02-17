@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
     authorize @project
 
     render inertia: "Projects/Form", props: {
-      project: { name: "", description: "", demo_link: "", repo_link: "", is_unlisted: false, tags: [], hours_logged: 0, point_multiplier: 1.0 },
+      project: { name: "", description: "", is_unlisted: false, tags: [], point_multiplier: 1.0 },
       title: "New Project",
       submit_url: projects_path,
       method: "post"
@@ -100,12 +100,12 @@ class ProjectsController < ApplicationController
         id: @project.id,
         name: @project.name,
         description: @project.description.to_s,
-        demo_link: @project.demo_link.to_s,
         repo_link: @project.repo_link.to_s,
         is_unlisted: @project.is_unlisted,
         tags: @project.tags,
-        hours_logged: @project.hours_logged,
-        point_multiplier: @project.point_multiplier.to_f
+        point_multiplier: @project.point_multiplier.to_f,
+        project_type: @project.project_type,
+        club_prizes: @project.club_prizes
       },
       title: "Edit Project",
       submit_url: project_path(@project),
@@ -136,7 +136,9 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.expect(project: [ :name, :description, :demo_link, :repo_link, :is_unlisted, :hours_logged, :point_multiplier, :project_type, :club_prizes, :github_repo, :github_repo_url, :github_repo_name, tags: [], selected_prizes: [] ])
+    permitted = [ :name, :description, :is_unlisted, :project_type, :club_prizes, tags: [], selected_prizes: [] ]
+    permitted << :point_multiplier if current_user.admin?
+    params.expect(project: permitted)
   end
 
   def serialize_project_card(project)
