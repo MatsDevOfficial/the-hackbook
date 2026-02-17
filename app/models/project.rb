@@ -58,12 +58,11 @@ class Project < ApplicationRecord
   scope :listed, -> { where(is_unlisted: false) }
 
   def available_prizes
-    # Mock shop items for now
-    [
-      { id: "blahaj", name: "Blahaj", cost: 100 },
-      { id: "stickers", name: "Hack Club Stickers", cost: 10 },
-      { id: "notebook", name: "Hack Club Notebook", cost: 50 }
-    ]
+    Prize.all.order(cost: :asc)
+  end
+
+  def point_balance
+    (hours_logged || 0) * (point_multiplier || 1.0)
   end
 
   private

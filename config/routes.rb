@@ -124,6 +124,7 @@ Rails.application.routes.draw do
   get "sorry" => "bans#show", as: :sorry
 
   get "home" => "home#index", as: :home
+  get "shop" => "shop#index", as: :shop
 
   resources :projects do
     member do

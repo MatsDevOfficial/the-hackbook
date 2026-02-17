@@ -19,6 +19,7 @@
 
   <div class="flex items-center gap-6">
     <Link href="/docs" class="font-bold hover:text-brand-red transition-colors">Docs</Link>
+    <Link href="/shop" class="font-bold hover:text-brand-red transition-colors">Market</Link>
 
     {#if shared.auth.user}
       <div class="flex items-center gap-4">
