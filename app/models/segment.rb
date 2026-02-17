@@ -28,6 +28,7 @@
 #
 class Segment < ApplicationRecord
   belongs_to :user
+  belongs_to :project
   has_many :ships, dependent: :destroy
 
   validates :title, presence: true
