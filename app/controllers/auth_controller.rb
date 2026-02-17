@@ -1,5 +1,5 @@
 class AuthController < ApplicationController
-  allow_unauthenticated_access only: %i[ new create bypass ]
+  allow_unauthenticated_access only: %i[ new create bypass github ]
   skip_before_action :redirect_banned_user!, only: %i[destroy]
   rate_limit to: 10, within: 3.minutes, only: :create, with: -> { redirect_to signin_path, alert: "Try again later." }
 
@@ -89,6 +89,12 @@ class AuthController < ApplicationController
       end
       redirect_to root_path, alert: e.message
     end
+  end
+
+  def github
+    # This will be replaced with real GitHub OAuth logic later
+    # For now, we stub it to capture the callback
+    render plain: "GitHub Callback Received! We will implement state matching and token exchange soon."
   end
 
   def destroy
