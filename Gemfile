@@ -95,7 +95,7 @@ gem "redcarpet", "~> 3.6"
 
 gem "aws-sdk-s3", require: false
 
-gem "pagy", "~> 43.2"
+gem "pagy", "~> 43.4"
 gem "pg_search", "~> 2.3"
 gem "wicked_pdf"
 gem "htmltoword"
